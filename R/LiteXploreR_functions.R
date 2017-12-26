@@ -187,9 +187,9 @@ GenerateLogit <- function(Data, CrossTable, Covariate){
   setnames(DT1, names(DT1)[1], Covariate)
   NewName <- paste0(Covariate, "Logit")
   setnames(DT1, "Logit", NewName)
-  DTJoined <- data.table(dplyr::left_join(Data, DT1[, c(Covariate, NewName),
-                                                    with = F],
-                                          by = Covariate))
+  DTJoined <- data.table(left_join(Data, DT1[, c(Covariate, NewName),
+                                             with = F],
+                                   by = Covariate))
   return(DTJoined)
 }
 
