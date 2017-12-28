@@ -11,8 +11,9 @@
 #' If the Type is "Continuous", it returns a data.table containing the names of
 #' covariates, number of NA, number of 0, Adjusted R-squared, and p-value.
 #'
-#' @param Target A string of the name of binary target to be predicted.
-#' @param Data A data.frame containing both the target and covariates.
+#' @param Target A string of the name of target to be predicted.
+#' @param Data A data.frame or data.table containing both the target and
+#' covariates.
 #' @param Skip A vector of strings containing the names of columns to be
 #' skipped, such as ID.
 #' @param Type The type of dependent variables, either "Binary" or
@@ -266,7 +267,7 @@ AUROC <- function(Target, Prediction){
     TP <- c(0, cumsum(DT1[, Event])/ sum(DT1[, Event]), 1)
 
     } else{
-      "The class of Prediction should be eiher numeric or factor."
+      stop("The class of Prediction should be eiher numeric or factor.")
   }
     N <- length(FP)
     TpAvg <- (TP[-1] + TP[-N])/ 2
@@ -319,7 +320,7 @@ PlotROC <- function(Target, Prediction, ...){
     TP <- c(0, cumsum(DT1[, Event])/ sum(DT1[, Event]), 1)
 
   } else{
-    "The class of Prediction should be eiher numeric or factor."
+    stop("The class of Prediction should be eiher numeric or factor.")
   }
     N <- length(FP)
     TpAvg <- (TP[-1] + TP[-N])/ 2

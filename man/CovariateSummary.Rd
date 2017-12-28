@@ -7,9 +7,10 @@
 CovariateSummary(Target, Data, Skip = NULL, Type = "Binary")
 }
 \arguments{
-\item{Target}{A string of the name of binary target to be predicted.}
+\item{Target}{A string of the name of target to be predicted.}
 
-\item{Data}{A data.frame containing both the target and covariates.}
+\item{Data}{A data.frame or data.table containing both the target and
+covariates.}
 
 \item{Skip}{A vector of strings containing the names of columns to be
 skipped, such as ID.}
