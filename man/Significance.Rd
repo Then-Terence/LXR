@@ -2,14 +2,14 @@
 % Please edit documentation in R/LiteXploreR_functions.R
 \name{Significance}
 \alias{Significance}
-\title{Generate Statistical Significance}
+\title{Univariate Statistical Significance}
 \usage{
 Significance(Target, Prediction)
 }
 \arguments{
 \item{Target}{A vector of the dependent variable.}
 
-\item{Prediction}{A vector of a covariate.}
+\item{Prediction}{A vector of the predictions.}
 }
 \description{
 This function computes the Statistical Significance (p-value) equivalent to

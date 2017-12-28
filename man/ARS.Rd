@@ -2,14 +2,14 @@
 % Please edit documentation in R/LiteXploreR_functions.R
 \name{ARS}
 \alias{ARS}
-\title{Generate Adjusted R Squared}
+\title{Univariate Adjusted R Squared}
 \usage{
 ARS(Target, Prediction)
 }
 \arguments{
 \item{Target}{A vector of the dependent variable.}
 
-\item{Prediction}{A vector of a covariate.}
+\item{Prediction}{A vector of the predictions.}
 }
 \description{
 This function computes the Adjusted R Squared equivalent to that obtained

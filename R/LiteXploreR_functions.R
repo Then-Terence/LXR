@@ -187,9 +187,8 @@ GenerateLogit <- function(Data, CrossTable, Covariate){
   setnames(DT1, names(DT1)[1], Covariate)
   NewName <- paste0(Covariate, "Logit")
   setnames(DT1, "Logit", NewName)
-  DTJoined <- data.table(left_join(Data, DT1[, c(Covariate, NewName),
-                                             with = F],
-                                   by = Covariate))
+  DTJoined <- merge(Data, DT1[, c(Covariate, NewName), with = F],
+                    by = Covariate)
   return(DTJoined)
 }
 
@@ -279,16 +278,17 @@ AUROC <- function(Target, Prediction){
   }
 }
 
-#' Plot the ROC Curve
+#' Plot ROC Curve
 #'
 #' This function plots the ROC curve.
 #'
 #' @param Target A vector with values of 0/1 to be predicted.
 #' @param Prediction A vector of prediction or covariate used to predict the target.
+#' @param ... Other parameters for plot().
 #' @export
 #' @examples PlotROC(mtcars$am, mtcars$mpg)
 
-PlotROC <- function(Target, Prediction){
+PlotROC <- function(Target, Prediction, ...){
   if(length(Target) != length(Prediction)){
     stop("Target and Prediction must be of the same length.")
   } else{
@@ -321,18 +321,28 @@ PlotROC <- function(Target, Prediction){
   } else{
     "The class of Prediction should be eiher numeric or factor."
   }
+    N <- length(FP)
+    TpAvg <- (TP[-1] + TP[-N])/ 2
+    FpDif <- FP[-1] - FP[-N]
+    Area <- sum(TpAvg * FpDif)
+
+    if(Area < 0.5){
+      TP <- 1 - TP
+      FP <- 1 - FP
+    }
+
   plot(FP, TP, xlab = "False Positive Rate", ylab = "True Positive Rate",
-       type = "l", pch = 16)
+       type = "l", pch = 16, ... = ...)
   }
 }
 
-#' Generate Adjusted R Squared
+#' Univariate Adjusted R Squared
 #'
 #' This function computes the Adjusted R Squared equivalent to that obtained
 #' from a linear regression.
 #'
 #' @param Target A vector of the dependent variable.
-#' @param Prediction A vector of a covariate.
+#' @param Prediction A vector of the predictions.
 #' @export
 #' @examples ARS(mtcars$mpg, mtcars$cyl)
 
@@ -358,13 +368,13 @@ ARS <- function(Target, Prediction){
   }
 }
 
-#' Generate Statistical Significance
+#' Univariate Statistical Significance
 #'
 #' This function computes the Statistical Significance (p-value) equivalent to
 #' that obtained from a linear regression.
 #'
 #' @param Target A vector of the dependent variable.
-#' @param Prediction A vector of a covariate.
+#' @param Prediction A vector of the predictions.
 #' @export
 #' @examples Significance(mtcars$mpg, mtcars$cyl)
 
@@ -391,4 +401,19 @@ Significance <- function(Target, Prediction){
   Significance <- 1 - pf(FStat, df1, df2)
   return(Significance)
   }
+}
+
+#' Logarithmic Loss
+#'
+#' This function computes the logarithmic loss for binary predictions.
+#'
+#' @param Target A vector of the binary dependent variable.
+#' @param Prediction A vector of the predictions.
+#' @export
+#' @examples LogLoss(Data[, Y], Model$fitted.values)
+
+LogLoss <- function(Target, Prediction){
+  -sum(Target * log(Prediction + 1e-99) +
+         (1 - Target) * log(1 - Prediction - 1e-99))/
+    length(Target)
 }

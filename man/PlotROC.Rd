@@ -2,14 +2,16 @@
 % Please edit documentation in R/LiteXploreR_functions.R
 \name{PlotROC}
 \alias{PlotROC}
-\title{Plot the ROC Curve}
+\title{Plot ROC Curve}
 \usage{
-PlotROC(Target, Prediction)
+PlotROC(Target, Prediction, ...)
 }
 \arguments{
 \item{Target}{A vector with values of 0/1 to be predicted.}
 
 \item{Prediction}{A vector of prediction or covariate used to predict the target.}
+
+\item{...}{Other parameters for plot().}
 }
 \description{
 This function plots the ROC curve.
