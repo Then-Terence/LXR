@@ -5,10 +5,10 @@ Version: 0.1.0
 Author: Terence Then
 Maintainer: Terence Then <then.terence@gmail.com>
 Description: This package compiles some functions for quick, dirty, and
-    repetitive exploratory analysis which may otherwise lengthen the script
-    unnecessarily. Emphasis is placed on the purpose of credit scoring, where
-    WoE (Semi Naive Bayesian Classification) modelling is routinely used. Most of
-    functions caters to the prediction of binary target variable.
+  repetitive exploratory analysis which may otherwise lengthen the script
+  unnecessarily. Emphasis is placed on the purpose of credit scoring, where
+  WoE (Semi Naive Bayesian Classification) modelling is routinely used. Most of
+  functions caters to the prediction of binary target variable.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
