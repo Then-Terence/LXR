@@ -7,7 +7,7 @@ Version 1.0 December 31, 2017
 As {LiteXploreR} is hosted on GitHub, you will need to use the function
 install_github() for the package {devtools} to install it.
 
-To do that, you need to run the following codes in your R console:
+To do that, you need to run the following lines of code in your R console:
 
 install.packages("devtools")
 
@@ -20,8 +20,8 @@ install_github("Then-Terence/LiteXploreR")
 
 
 First of all, I am going to load the package {LiteXploreR} and a credit
-dataset obtained from Kaggle. I have split them into training, validation and
-testing set.
+dataset obtained from Kaggle (https://www.kaggle.com/c/GiveMeSomeCredit/data).
+I have split them into training, validation and testing set.
 
 
 ```r
@@ -162,6 +162,13 @@ AgeTable
 ## 20: (78,109]    83      3998   4081      0.0203 -1.24206231
 ```
 
+For every category, the table shows the number of observations, the number of
+observations that take the value of 1 for Delinquency, those who take the value
+of 0 for delinquency, the probability, and the logit score.
+
+The logit score is the log odds, which is the numerical equivalent used in
+logistic regression.
+
 The cutoffs can be obtained from the function quantile() in base R. Its minimum
 and maximum are replaced by 0 and Inf respectively.
 
@@ -236,7 +243,7 @@ Due30Table
 ## 15:    98    81        70    151      0.5364  2.7786005
 ```
 
-There are very little observations having values greater than 5. As such, they
+There are very little observations having values greater than 4. As such, they
 will be grouped together.
 
 The exceptions are 96 and 98, which may indicate a special status, they will be
@@ -543,7 +550,7 @@ system.time(AUROC(Train[, Delinquency], ScoringModel$fitted.values))
 
 ```
 ##    user  system elapsed 
-##       0       0       0
+##    0.01    0.00    0.01
 ```
 
 ```r
@@ -552,7 +559,7 @@ system.time(auc(Train[, Delinquency], ScoringModel$fitted.values))
 
 ```
 ##    user  system elapsed 
-##    0.82    0.17    1.00
+##    0.83    0.13    0.95
 ```
 
 In addition, a function for logarithmic loss is included in this package as
