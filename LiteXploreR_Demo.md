@@ -2,6 +2,22 @@
 Terence Then  
 Version 1.0 December 31, 2017  
 
+# Introduction of {LiteXploreR}
+
+This package compiles some functions for quick, dirty, and repetitive
+exploratory analysis which may otherwise lengthen the script unnecessarily.
+Emphasis is placed on the purpose of credit scoring, where WoE modelling
+(Semi Naive Bayesian Classification) is routinely used. Most of functions
+caters to the prediction of binary target variable.
+
+In this version of the demonstration document, I have only included the
+functions that will be used for modelling the response of a binary target.
+
+There are some functions written for analyses involving a target taking a
+continuous value, but they have a long way to go, and will be expanded over
+time. Hopefully by then, they will warrant a separate documentation for
+the purpose of demonstration.
+
 # How to Download this Package
 
 As {LiteXploreR} is hosted on GitHub, you will need to use the function
@@ -550,7 +566,7 @@ system.time(AUROC(Train[, Delinquency], ScoringModel$fitted.values))
 
 ```
 ##    user  system elapsed 
-##    0.01    0.00    0.01
+##    0.02    0.00    0.02
 ```
 
 ```r
@@ -559,7 +575,7 @@ system.time(auc(Train[, Delinquency], ScoringModel$fitted.values))
 
 ```
 ##    user  system elapsed 
-##    0.83    0.13    0.95
+##    0.76    0.16    0.92
 ```
 
 In addition, a function for logarithmic loss is included in this package as
