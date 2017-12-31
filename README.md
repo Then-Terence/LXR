@@ -1,0 +1,2 @@
+# LiteXploreR
+R package {LiteXploreR}
