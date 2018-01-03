@@ -1,7 +1,7 @@
 Package: LiteXploreR
 Type: Package
 Title: Concise exploratory data analysis
-Version: 1.0.0
+Version: 1.0.1
 Author: Terence Then
 Maintainer: Terence Then <then.terence@gmail.com>
 Description: This package compiles some functions for quick, dirty, and
