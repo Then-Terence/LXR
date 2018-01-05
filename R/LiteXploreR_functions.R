@@ -219,9 +219,11 @@ CovariateWeights <- function(Model, Rounding = 0.01, Exact = FALSE, Intercept = 
   if(Exact == T){
     Difference <- RoundWeights - Weights
     if(sum(Difference) != 0){
-      Adjustments <- sum(Difference)/ Rounding
-      RoundWeights[order(Difference, decreasing = T)][1: Adjustments] <-
-        RoundWeights[order(Difference, decreasing = T)][1: Adjustments] - Rounding
+      Direction <- sum(Difference)/ abs(sum(Difference))
+      AdjustOrder <- order(Difference*Direction, decreasing = T)
+      Magnitude <- abs(sum(Difference)/ Rounding)
+      RoundWeights[AdjustOrder][1: Magnitude] <-
+        RoundWeights[AdjustOrder][1: Magnitude] - (Rounding * Direction)
     }
   }
   return(RoundWeights)
