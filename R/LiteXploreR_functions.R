@@ -218,7 +218,7 @@ CovariateWeights <- function(Model, Rounding = 0.01, Exact = FALSE, Intercept = 
   RoundWeights <- Rounding*round(Weights/ Rounding)
   if(Exact == T){
     Difference <- RoundWeights - Weights
-    if(sum(Difference) != 0){
+    if(sum(RoundWeights) != 100){
       Direction <- sum(Difference)/ abs(sum(Difference))
       AdjustOrder <- order(Difference*Direction, decreasing = T)
       Magnitude <- abs(sum(Difference)/ Rounding)
