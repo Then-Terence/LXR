@@ -104,7 +104,7 @@ CategoricalTable <- function(Target, Covariate, Data){
              by = Covariate]
   DT1[, Counts := Event + `Non Event`]
   DT1[, Probability := round(Event/ Counts, 4)]
-  DT1[, Logit := log(Probability/ (1 - Probability))]
+  DT1[, Logit := log(Event/ `Non Event`)]
 
   NA.Position <- which(is.na(DT1[, 1]))
   Order <- order(DT1[, 1])
@@ -151,7 +151,7 @@ NumericalTable <- function(Target, Covariate, Data, NumberOfBins = 5,
              by = Categories]
   DT1[, Counts := Event + `Non Event`]
   DT1[, Probability := round(Event/ Counts, 4)]
-  DT1[, Logit := log (Probability/ (1 - Probability))]
+  DT1[, Logit := log (Event/ `Non Event`)]
 
   LowerBounds <- gsub("^.*\\(", "", as.character(DT1[, Categories]))
   LowerBounds <- gsub("^.*\\[", "", LowerBounds)
