@@ -416,7 +416,8 @@ Significance <- function(Target, Prediction){
 #' @examples LogLoss(Data[, Y], Model$fitted.values)
 
 LogLoss <- function(Target, Prediction){
-  -sum(Target * log(Prediction + 1e-99) +
-         (1 - Target) * log(1 - Prediction - 1e-99))/
+  AdjPrediction <- pmin(pmax(Prediction, 1e-99), 1 - 1e-99)
+  -sum(Target * log(AdjPrediction) +
+         (1 - Target) * log(1 - AdjPrediction))/
     length(Target)
 }
