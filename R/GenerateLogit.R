@@ -23,11 +23,12 @@ GenerateLogit <- function(Data, CrossTable, Covariate, UseLogit = T){
   DT2 <- copy(CrossTable)
   DT1[, Foo := 1:nrow(DT1)]
   setnames(DT2, names(DT2)[1], Covariate)
-  NewName <- paste0(Covariate, "Logit")
 
   if(UseLogit == T){
+    NewName <- paste0(Covariate, "Logit")
     setnames(DT2, "Logit", NewName)
   } else {
+    NewName <- paste0(Covariate, "Score")
     setnames(DT2, "Score", NewName)
   }
 
