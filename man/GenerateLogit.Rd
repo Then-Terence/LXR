@@ -4,7 +4,8 @@
 \alias{GenerateLogit}
 \title{Generate Logit}
 \usage{
-GenerateLogit(Data, CrossTable, Covariate, UseLogit = T)
+GenerateLogit(Data, CrossTable, Covariate, Suffix = "Logit",
+  SelectCol = NULL, NewName = NULL)
 }
 \arguments{
 \item{Data}{A data.frame or data.table for which a new column will be
@@ -25,6 +26,9 @@ corresponding to a covariate.
 Discretize a continuous covariate
 mtcars[, mpgCat := cut(mpg, breaks = c(10, 17, 21, 35), include.lowest = T)]
 
+Generate a cross table
+mpgTable <- CategoricalTable("am", "mpgCat", mtcars)
+
 Generate the conditional logit
-mtcars <- GenerateLogit(mtcars, mpgTable, "mpgCat")
+GenerateLogit(mtcars, mpgTable, "mpgCat")
 }

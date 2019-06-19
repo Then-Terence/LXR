@@ -12,8 +12,8 @@ AUROC(Target, Prediction)
 \item{Prediction}{A vector of prediction or covariate used to predict the target.}
 }
 \description{
-This function computes the AUC, and returns the numeric value of it.
+Calculates the area under the ROC curve.
 }
 \examples{
-AUROC(mtcars$am, mtcars$mpg)
+AUROC(mtcars[, "am"], mtcars[, "mpg"])
 }

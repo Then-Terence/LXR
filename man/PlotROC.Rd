@@ -4,7 +4,7 @@
 \alias{PlotROC}
 \title{Plot ROC Curve}
 \usage{
-PlotROC(Target, Prediction, ...)
+PlotROC(Target, Prediction, type = "l", pch = 16, ...)
 }
 \arguments{
 \item{Target}{A vector with values of 0/1 to be predicted.}
@@ -17,5 +17,5 @@ PlotROC(Target, Prediction, ...)
 This function plots the ROC curve.
 }
 \examples{
-PlotROC(mtcars$am, mtcars$mpg)
+PlotROC(mtcars[, am], mtcars[, mpg])
 }

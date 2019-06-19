@@ -5,7 +5,7 @@
 \title{Cross Table of Numerical Covariates}
 \usage{
 NumericalTable(Target, Covariate, Data, NumberOfBins = 5,
-  CustomBins = F, CustomIntervals = NULL, UseLogit = T)
+  UseCustomIntervals = F, CustomIntervals = NULL, UseLogit = T)
 }
 \arguments{
 \item{Target}{The name of binary target to be predicted.}
@@ -16,7 +16,7 @@ NumericalTable(Target, Covariate, Data, NumberOfBins = 5,
 
 \item{NumberOfBins}{Number of bins the numerical value to be broken into.}
 
-\item{CustomBins}{Allowing a custom set of values to be used for binning.}
+\item{UseCustomIntervals}{Allowing a custom set of values to be used for binning.}
 
 \item{CustomIntervals}{The numerical values of the break points.}
 
@@ -29,5 +29,5 @@ covariate and the corresponding probabilities of the binary dependent
 variable taking the value of 1.
 }
 \examples{
-mpgTable <- NumericalTable(Target = "am", Covariate = "mpg", Data = mtcars)
+NumericalTable(Target = "am", Covariate = "mpg", Data = mtcars)
 }

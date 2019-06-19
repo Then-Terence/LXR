@@ -11,7 +11,7 @@ CategoricalTable(Target, Covariate, Data, UseLogit = T)
 
 \item{Covariate}{The name of the covariate.}
 
-\item{Data}{A data.table containing both the target and covariate.}
+\item{Data}{A data.frame or data.table containing both the target and covariate.}
 
 \item{UseLogit}{If the value is TRUE, Log Odds will be generated. Otherwise,
 a set of score derived from Log Odds, scaled from 0 to 100, will be generated.}
@@ -22,5 +22,5 @@ independent variable and the corresponding probabilities of the binary dependent
 variable taking the value of 1.
 }
 \examples{
-gearTable <- CategoricalTable(Target = "am", Covariate = "gear", Data = mtcars)
+CategoricalTable(Target = "am", Covariate = "gear", Data = mtcars)
 }

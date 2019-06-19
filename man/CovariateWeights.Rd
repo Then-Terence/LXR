@@ -10,7 +10,7 @@ CovariateWeights(Model, Rounding = 0.01, Exact = FALSE,
 \arguments{
 \item{Model}{A "lm" or "glm" object.}
 
-\item{Rounding}{Desired rounding, default is up to 2 decimal places.}
+\item{Rounding}{Desired rounding, default is up to 2 decimal places (i.e. 0.01%).}
 
 \item{Exact}{If Exact = TRUE, the function will return weights with the sum of exactly
 100. Default is set to FALSE, to reduce time required for computation.}

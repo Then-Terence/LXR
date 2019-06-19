@@ -15,26 +15,43 @@
 #' Discretize a continuous covariate
 #' mtcars[, mpgCat := cut(mpg, breaks = c(10, 17, 21, 35), include.lowest = T)]
 #'
+#' Generate a cross table
+#' mpgTable <- CategoricalTable("am", "mpgCat", mtcars)
+#'
 #' Generate the conditional logit
-#' mtcars <- GenerateLogit(mtcars, mpgTable, "mpgCat")
+#' GenerateLogit(mtcars, mpgTable, "mpgCat")
 
-GenerateLogit <- function(Data, CrossTable, Covariate, UseLogit = T){
-  DT1 <- copy(Data)
-  DT2 <- copy(CrossTable)
-  DT1[, Foo := 1:nrow(DT1)]
-  setnames(DT2, names(DT2)[1], Covariate)
+GenerateLogit <- function(Data, CrossTable, Covariate, Suffix = "Logit",
+                          SelectCol = NULL, NewName = NULL){
 
-  if(UseLogit == T){
-    NewName <- paste0(Covariate, "Logit")
-    setnames(DT2, "Logit", NewName)
-  } else {
-    NewName <- paste0(Covariate, "Score")
-    setnames(DT2, "Score", NewName)
+  Data <- data.table(Data)
+
+  if(is.null(SelectCol)){
+
+    SelectCol <- Suffix
+
   }
 
-  DTJoined <- merge(DT1, DT2[, c(Covariate, NewName), with = F],
-                    by = Covariate)
-  DTJoined <- DTJoined[order(Foo), ]
-  DTJoined[, Foo := NULL]
-  return(DTJoined)
+  if(is.null(NewName)){
+
+    NewName <- paste0(Covariate, Suffix)
+
+  }
+
+  DT[, Foo := .I]
+
+  CT <- CrossTable[, c(names(CrossTable)[1], SelectCol), with = F]
+  setnames(CT, names(CT), c(Covariate, "Bar"))
+
+  setkeyv(DT, Covariate)
+  setkeyv(CT, Covariate)
+
+  DT[CT, (NewName) := i.Bar]
+  rm(CT)
+
+  setkey(DT, Foo)
+  DT[, Foo := NULL]
+
+  ArrangeColumn(Covariate, NewName, DT)
+
 }

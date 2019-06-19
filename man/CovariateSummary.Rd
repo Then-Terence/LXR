@@ -4,7 +4,7 @@
 \alias{CovariateSummary}
 \title{Summary of Covariates}
 \usage{
-CovariateSummary(Target, Data, Skip = NULL, Type = "Binary")
+CovariateSummary(Target, Data, Skip = NULL)
 }
 \arguments{
 \item{Target}{A string of the name of target to be predicted.}
@@ -13,10 +13,7 @@ CovariateSummary(Target, Data, Skip = NULL, Type = "Binary")
 covariates.}
 
 \item{Skip}{A vector of strings containing the names of columns to be
-skipped, such as ID.}
-
-\item{Type}{The type of dependent variables, either "Binary" or
-"Continuous". Default is "Binary".}
+skipped.}
 }
 \description{
 This function allows you to explore the discriminatory power of covariates
@@ -24,12 +21,9 @@ against a binary target, and summarizes the number of NA and 0 in each of
 the covariates.
 }
 \details{
-If the Type is "Binary", it returns a data.table containing the names of
+It returns a data.table containing the names of
 covariates, number of NA, number of 0, and Area Under the Curve (AUC).
-
-If the Type is "Continuous", it returns a data.table containing the names of
-covariates, number of NA, number of 0, Adjusted R-squared, and p-value.
 }
 \examples{
-VariableSummary(Target = "am", Data = mtcars, Skip = c("vs", "carb"), Type = "Binary")
+CovariateSummary(Target = "am", Data = mtcars, Skip = c("vs", "carb"))
 }
