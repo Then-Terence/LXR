@@ -25,7 +25,7 @@ NumericalTable <- function(Target, Covariate, Data, NumberOfBins = 5,
   Results <- Data[, c(Target, Covariate), with = F]
   setnames(Results, names(Results), c("Target", "Covariate"))
 
-  if(CustomBins == F){
+  if(UseCustomIntervals == F){
 
     Breaks <- quantile(Results[, Covariate],
                        probs = seq(0, 1, 1/ NumberOfBins), na.rm = T)
