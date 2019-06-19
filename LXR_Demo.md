@@ -1,26 +1,18 @@
-# LiteXploreR Demo
+# LXR Demo
 Terence Then  
-Version 1.0 December 31, 2017  
+Version 1.0 June 19, 2019  
 
 # Introduction of {LiteXploreR}
 
 This package compiles some functions for quick, dirty, and repetitive
 exploratory analysis which may otherwise lengthen the script unnecessarily.
 Emphasis is placed on the purpose of credit scoring, where WoE modelling
-(Semi Naive Bayesian Classification) is routinely used. Most of functions
+(Semi Naive Bayesian Classifier) is routinely used. The functions
 caters to the prediction of binary target variable.
-
-In this version of the demonstration document, I have only included the
-functions that will be used for modelling the response of a binary target.
-
-There are some functions written for analyses involving a target taking a
-continuous value, but they have a long way to go, and will be expanded over
-time. Hopefully by then, they will warrant a separate documentation for
-the purpose of demonstration.
 
 # How to Download this Package
 
-As {LiteXploreR} is hosted on GitHub, you will need to use the function
+As {LXR} is hosted on GitHub, you will need to use the function
 install_github() for the package {devtools} to install it.
 
 To do that, you need to run the following lines of code in your R console:
@@ -29,20 +21,18 @@ install.packages("devtools")
 
 library(devtools)
 
-install_github("Then-Terence/LiteXploreR")
+install_github("Then-Terence/LXR")
 
 # Setting Up the Workspace
 
-
-
-First of all, I am going to load the package {LiteXploreR} and a credit
+First of all, I am going to load the package {LXR} and a credit
 dataset obtained from Kaggle (https://www.kaggle.com/c/GiveMeSomeCredit/data).
 I have split them into training, validation and testing set.
 
 
 ```r
 # Load the Package
-library(LiteXploreR)
+library(LXR)
 ```
 
 ```
