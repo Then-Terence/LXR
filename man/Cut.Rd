@@ -38,6 +38,6 @@ mtcars[, mpgCat := cut(mpg, breaks = c(10, 17, 21, 35), include.lowest = T)]
 
 is comparable to
 
-Cut(Data = mtcars, NewColumn =  "mpgCat", x = mpg,
+Cut(Data = mtcars, NewColumn = "mpgCat", x = mpg,
 breaks = c(10, 17, 21, 35))
 }

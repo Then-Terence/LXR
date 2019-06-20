@@ -25,12 +25,10 @@
 #'
 #' is comparable to
 #'
-#' Cut(Data = mtcars, NewColumn =  "mpgCat", x = mpg,
+#' Cut(Data = mtcars, NewColumn = "mpgCat", x = mpg,
 #' breaks = c(10, 17, 21, 35))
 
 Cut <- function(Data, NewColumn, x, breaks, include.lowest = T, ...){
-
-  Data <- data.table(Data)
 
   ArgX <- substitute(x)
   ArgBreaks <- substitute(breaks)
@@ -40,6 +38,6 @@ Cut <- function(Data, NewColumn, x, breaks, include.lowest = T, ...){
                             include.lowest = include.lowest,
                             ...            = ...)]
 
-  ArrangeColumn(as.character(ArgX), NewColumn, DT)
+  ArrangeColumn(as.character(ArgX), NewColumn, Data)
 
 }
