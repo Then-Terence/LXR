@@ -44,7 +44,8 @@ GenerateCrossTables <- function(Target, Covariate, Data, Groups, UseLogit = T){
         UniqueGroups[j] <-
           length(
             unique(
-              quantile(CovariateVector, probs = seq(0, 1, 1/Groups[j])))) - 1
+              quantile(CovariateVector, probs = seq(0, 1, 1/Groups[j]),
+                       na.rm = T))) - 1
 
       }
 
