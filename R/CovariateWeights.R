@@ -6,7 +6,7 @@
 #' The relative importance is only valid when the covariates are standardized.
 #'
 #' @param Model A "lm" or "glm" object.
-#' @param Rounding Desired rounding, default is up to 2 decimal places (i.e. 0.01%).
+#' @param Rounding Desired rounding, default is up to 2 decimal places (i.e. 0.01\%).
 #' @param Exact If Exact = TRUE, the function will return weights with the sum of exactly
 #' 100. Default is set to FALSE, to reduce time required for computation.
 #' @param Intercept Does the regression object have an intercept term? Default is set to
