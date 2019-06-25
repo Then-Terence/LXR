@@ -7,7 +7,7 @@
 #'
 #' @param Target The name of binary target to be predicted.
 #' @param Covariate The name of the covariate.
-#' @param Data A data.table containing both the target and covariate.
+#' @param DT A data.table containing both the target and covariate.
 #' @param NumberOfBins Number of bins the numerical value to be broken into.
 #' @param UseCustomIntervals Allowing a custom set of values to be used for binning.
 #' @param CustomIntervals The numerical values of the break points.
@@ -17,12 +17,12 @@
 #' @examples NumericalTable(Target = "am", Covariate = "mpg", Data = mtcars)
 
 
-NumericalTable <- function(Target, Covariate, Data, NumberOfBins = 5,
+NumericalTable <- function(Target, Covariate, DT, NumberOfBins = 5,
                            UseCustomIntervals = F,
                            CustomIntervals = NULL,
                            UseLogit = T){
 
-  Results <- Data[, c(Target, Covariate), with = F]
+  Results <- DT[, c(Target, Covariate), with = F]
   setnames(Results, names(Results), c("Target", "Covariate"))
 
   if(UseCustomIntervals == F){

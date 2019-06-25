@@ -4,7 +4,7 @@
 \alias{GenerateCrossTables}
 \title{Generate Cross Tables}
 \usage{
-GenerateCrossTables(Target, Covariate, Data, Groups, UseLogit = T)
+GenerateCrossTables(Target, Covariate, DT, Groups, UseLogit = T)
 }
 \arguments{
 \item{Target}{The name of the binary dependent variable.}
@@ -12,7 +12,7 @@ GenerateCrossTables(Target, Covariate, Data, Groups, UseLogit = T)
 \item{Covariate}{The name of the covariates for which the cross tables
 will be generated on.}
 
-\item{Data}{A data.frame or data.table which contains the covariates and the
+\item{DT}{A data.table which contains the covariates and the
 binary dependent variable.}
 
 \item{Groups}{If the covariate is numeric, how many roughly equal-sized
@@ -29,7 +29,7 @@ from Log Odds, scaled from 0 to 100, will be generated.}
 }
 \description{
 This function generates cross tables for the columns of covariates in a
-data.table or data.frame in relation to a binary dependent variable. It
+data.table in relation to a binary dependent variable. It
 returns a list containing the cross tables
 }
 \examples{

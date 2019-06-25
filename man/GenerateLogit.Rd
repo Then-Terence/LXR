@@ -4,16 +4,16 @@
 \alias{GenerateLogit}
 \title{Generate Logit}
 \usage{
-GenerateLogit(Data, CrossTable, Covariate, Suffix = "Logit",
+GenerateLogit(DT, CrossTable, Covariate, Suffix = "Logit",
   SelectCol = NULL, NewName = NULL)
 }
 \arguments{
-\item{Data}{A data.frame or data.table for which a new column will be
-generated in.}
-
 \item{CrossTable}{A cross table with the different levels of the covariate.}
 
 \item{Covariate}{The name of the covariate.}
+
+\item{Data}{A data.frame or data.table for which a new column will be
+generated in.}
 
 \item{UseLogit}{If the value is TRUE, the join will be based on a column
 named "Logit". Otherwise, it will look for a column named "Score".}

@@ -2,13 +2,13 @@
 #' Generate Cross Tables
 #'
 #' This function generates cross tables for the columns of covariates in a
-#' data.table or data.frame in relation to a binary dependent variable. It
+#' data.table in relation to a binary dependent variable. It
 #' returns a list containing the cross tables
 #'
 #' @param Target The name of the binary dependent variable.
 #' @param Covariate The name of the covariates for which the cross tables
 #' will be generated on.
-#' @param Data A data.frame or data.table which contains the covariates and the
+#' @param DT A data.table which contains the covariates and the
 #' binary dependent variable.
 #' @param Groups If the covariate is numeric, how many roughly equal-sized
 #' groups should they be divided into.
@@ -25,15 +25,15 @@
 #' TableList <- GenerateCrossTables(Target = "am",
 #' Covariate = c("mpg", "cyl", "hp"), Groups = c(3, 4))
 
-GenerateCrossTables <- function(Target, Covariate, Data, Groups, UseLogit = T){
+GenerateCrossTables <- function(Target, Covariate, DT, Groups, UseLogit = T){
 
-  Data <- data.table(Data)
+  DT <- data.table(DT)
 
   Results <- list()
 
   for(i in 1:length(Covariate)){
 
-    CovariateVector <- Data[[Covariate[i]]]
+    CovariateVector <- DT[[Covariate[i]]]
 
     if(is.numeric(CovariateVector)){
 
@@ -53,19 +53,19 @@ GenerateCrossTables <- function(Target, Covariate, Data, Groups, UseLogit = T){
 
         PossibleGroup <- max(Groups[Groups == UniqueGroups])
 
-        Results[[i]] <- NumericalTable(Target, Covariate[i], Data, PossibleGroup,
+        Results[[i]] <- NumericalTable(Target, Covariate[i], DT, PossibleGroup,
                                        UseLogit = UseLogit)
 
       } else {
 
-        Results[[i]] <- CategoricalTable(Target, Covariate[i], Data,
+        Results[[i]] <- CategoricalTable(Target, Covariate[i], DT,
                                          UseLogit = UseLogit)
 
       }
 
     } else{
 
-      Results[[i]] <- CategoricalTable(Target, Covariate[i], Data,
+      Results[[i]] <- CategoricalTable(Target, Covariate[i], DT,
                                        UseLogit = UseLogit)
 
     }

@@ -4,10 +4,10 @@
 \alias{Cut}
 \title{Cut}
 \usage{
-Cut(Data, NewColumn, x, breaks, include.lowest = T, ...)
+Cut(DT, NewColumn, x, breaks, include.lowest = T, ...)
 }
 \arguments{
-\item{Data}{The data.frame or data.table for cut() to be used in.}
+\item{DT}{The data.table for cut() to be used in.}
 
 \item{NewColumn}{The name for the new column.}
 
@@ -38,6 +38,6 @@ mtcars[, mpgCat := cut(mpg, breaks = c(10, 17, 21, 35), include.lowest = T)]
 
 is comparable to
 
-Cut(Data = mtcars, NewColumn = "mpgCat", x = mpg,
+Cut(DT = mtcars, NewColumn = "mpgCat", x = mpg,
 breaks = c(10, 17, 21, 35))
 }

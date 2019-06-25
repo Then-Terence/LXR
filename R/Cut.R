@@ -7,7 +7,7 @@
 #' It is similar to base::cut() but it also arranges the new column to be right
 #' next to the old column being discretized.
 #'
-#' @param Data The data.frame or data.table for cut() to be used in.
+#' @param DT The data.table for cut() to be used in.
 #' @param NewColumn The name for the new column.
 #' @param x Argument for cut(), a numeric vector which is to be converted to a
 #' factor by cutting.
@@ -25,19 +25,19 @@
 #'
 #' is comparable to
 #'
-#' Cut(Data = mtcars, NewColumn = "mpgCat", x = mpg,
+#' Cut(DT = mtcars, NewColumn = "mpgCat", x = mpg,
 #' breaks = c(10, 17, 21, 35))
 
-Cut <- function(Data, NewColumn, x, breaks, include.lowest = T, ...){
+Cut <- function(DT, NewColumn, x, breaks, include.lowest = T, ...){
 
   ArgX <- substitute(x)
   ArgBreaks <- substitute(breaks)
 
-  Data[, (NewColumn) := cut(x              = eval(ArgX),
+  DT[, (NewColumn) := cut(x              = eval(ArgX),
                             breaks         = eval(ArgBreaks),
                             include.lowest = include.lowest,
                             ...            = ...)]
 
-  ArrangeColumn(as.character(ArgX), NewColumn, Data)
+  ArrangeColumn(as.character(ArgX), NewColumn, DT)
 
 }

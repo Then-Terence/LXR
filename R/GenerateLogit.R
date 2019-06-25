@@ -21,10 +21,8 @@
 #' Generate the conditional logit
 #' GenerateLogit(mtcars, mpgTable, "mpgCat")
 
-GenerateLogit <- function(Data, CrossTable, Covariate, Suffix = "Logit",
+GenerateLogit <- function(DT, CrossTable, Covariate, Suffix = "Logit",
                           SelectCol = NULL, NewName = NULL){
-
-  Data <- data.table(Data)
 
   if(is.null(SelectCol)){
 

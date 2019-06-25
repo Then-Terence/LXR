@@ -4,12 +4,12 @@
 \alias{CovariateSummary}
 \title{Summary of Covariates}
 \usage{
-CovariateSummary(Target, Data, Skip = NULL)
+CovariateSummary(Target, DT, Skip = NULL)
 }
 \arguments{
 \item{Target}{A string of the name of target to be predicted.}
 
-\item{Data}{A data.frame or data.table containing both the target and
+\item{DT}{A data.table containing both the target and
 covariates.}
 
 \item{Skip}{A vector of strings containing the names of columns to be
@@ -25,5 +25,5 @@ It returns a data.table containing the names of
 covariates, number of NA, number of 0, and Area Under the Curve (AUC).
 }
 \examples{
-CovariateSummary(Target = "am", Data = mtcars, Skip = c("vs", "carb"))
+CovariateSummary(Target = "am", DT = mtcars, Skip = c("vs", "carb"))
 }

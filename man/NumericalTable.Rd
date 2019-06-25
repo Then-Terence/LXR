@@ -4,7 +4,7 @@
 \alias{NumericalTable}
 \title{Cross Table of Numerical Covariates}
 \usage{
-NumericalTable(Target, Covariate, Data, NumberOfBins = 5,
+NumericalTable(Target, Covariate, DT, NumberOfBins = 5,
   UseCustomIntervals = F, CustomIntervals = NULL, UseLogit = T)
 }
 \arguments{
@@ -12,7 +12,7 @@ NumericalTable(Target, Covariate, Data, NumberOfBins = 5,
 
 \item{Covariate}{The name of the covariate.}
 
-\item{Data}{A data.table containing both the target and covariate.}
+\item{DT}{A data.table containing both the target and covariate.}
 
 \item{NumberOfBins}{Number of bins the numerical value to be broken into.}
 

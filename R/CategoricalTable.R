@@ -7,15 +7,15 @@
 #'
 #' @param Target The name of binary target to be predicted.
 #' @param Covariate The name of the covariate.
-#' @param Data A data.frame or data.table containing both the target and covariate.
+#' @param DT A data.table containing both the target and covariate.
 #' @param UseLogit If the value is TRUE, Log Odds will be generated. Otherwise,
 #' a set of score derived from Log Odds, scaled from 0 to 100, will be generated.
 #' @export
-#' @examples CategoricalTable(Target = "am", Covariate = "gear", Data = mtcars)
+#' @examples CategoricalTable(Target = "am", Covariate = "gear", DT = mtcars)
 
-CategoricalTable <- function(Target, Covariate, Data, UseLogit = T){
+CategoricalTable <- function(Target, Covariate, DT, UseLogit = T){
 
-  Results <- data.table(Data)
+  Results <- data.table(DT)
   Results <- Results[, c(Target, Covariate), with = F]
   setnames(Results, Target, "Target")
 
