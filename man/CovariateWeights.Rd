@@ -4,8 +4,7 @@
 \alias{CovariateWeights}
 \title{Weights of Covariates}
 \usage{
-CovariateWeights(Model, Rounding = 0.01, Exact = FALSE,
-  Intercept = TRUE)
+CovariateWeights(Model, Rounding = 0.01, Exact = FALSE, Intercept = TRUE)
 }
 \arguments{
 \item{Model}{A "lm" or "glm" object.}

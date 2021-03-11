@@ -4,8 +4,15 @@
 \alias{NumericalTable}
 \title{Cross Table of Numerical Covariates}
 \usage{
-NumericalTable(Target, Covariate, DT, NumberOfBins = 5,
-  UseCustomIntervals = F, CustomIntervals = NULL, UseLogit = T)
+NumericalTable(
+  Target,
+  Covariate,
+  DT,
+  NumberOfBins = 5,
+  UseCustomIntervals = F,
+  CustomIntervals = NULL,
+  UseLogit = T
+)
 }
 \arguments{
 \item{Target}{The name of binary target to be predicted.}

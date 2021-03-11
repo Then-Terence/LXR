@@ -1,0 +1,11 @@
+memory profiling: GC profiling: line profiling: sample.interval=10000
+#File 1: 
+#File 2: <expr>
+:1834105:31844758:114390080:77:"order" 1#6 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1834105:34844760:114391928:1:1#7 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1834611:38848929:114516472:73:1#9 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1834612:42848929:114517368:1:"cumsum" 1#12 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1834614:47848929:114518488:1:1#14 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1834628:50348930:114519552:2:1#17 "BaseAUROC" 2#2 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1836598:55363446:114967104:270:"forderv" "[.data.table" 1#22 "[" 1#22 "BaseAUROC" 2#3 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 
+:1836861:56521543:115011176:19:"!" "[.data.table" 1#22 "[" 1#22 "BaseAUROC" 2#3 "force" "doTryCatch" "tryCatchOne" "tryCatchList" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "profvis::profvis" 

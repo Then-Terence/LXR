@@ -14,7 +14,7 @@ AUROC <- function(Target, Prediction){
 
     Results <- CalculateAUC(Target, Prediction)
 
-  } else if(is.factor(Prediction) | is.character(Prediction)){
+  } else if(is.factor(Prediction) | is.character(Prediction) | is.logical(Prediction)){
 
     Results <- CalculateFactorAUC(Target, Prediction)
 

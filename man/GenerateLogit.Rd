@@ -4,8 +4,14 @@
 \alias{GenerateLogit}
 \title{Generate Logit}
 \usage{
-GenerateLogit(DT, CrossTable, Covariate, Suffix = "Logit",
-  SelectCol = NULL, NewName = NULL)
+GenerateLogit(
+  DT,
+  CrossTable,
+  Covariate,
+  Suffix = "Logit",
+  SelectCol = NULL,
+  NewName = NULL
+)
 }
 \arguments{
 \item{CrossTable}{A cross table with the different levels of the covariate.}
